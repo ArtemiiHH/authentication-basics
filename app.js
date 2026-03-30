@@ -35,6 +35,13 @@ app.post("/sign-up", async (req, res, next) => {
     return next(err);
   }
 });
+app.post(
+  "/log-in",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+  }),
+);
 
 // Passport strategies
 
